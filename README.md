@@ -1,6 +1,6 @@
-# School Management System (Python)
+# School Management System v0.2 (Python)
 
-Status: UNDER DEVELOPMENT
+**Status**: `UNDER DEVELOPMENT`
 
 A CLI-based School Management System built using Python OOP and JSON-based storage.
 
@@ -12,4 +12,4 @@ A CLI-based School Management System built using Python OOP and JSON-based stora
 
 More details coming soon.
 
-**Note** : This project is under development so some files may be empty and the program is not connected completely.
+**Note** : This project is under development so some files may be empty and the program is not connected properly.

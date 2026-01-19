@@ -1,0 +1,64 @@
+ALLOWED_SUBJECTS = [
+    "Maths",
+    "English",
+    "Physics",
+    "Chemistry",
+    "Biology",
+    "Computer Science"
+]
+
+def validate_name(name):
+    if not name.replace(" ", "").isalpha():
+        raise ValueError("Name should contain only letters and spaces.")
+    return True
+
+def validate_class(student_class):
+    if not isinstance(student_class, int):
+        raise ValueError("Class must be an integer.")
+
+    if student_class < 1 or student_class > 12:
+        raise ValueError("Class must be between 1 and 12.")
+
+    return True
+
+def validate_roll_no(roll_no):
+    if not isinstance(roll_no, int):
+        raise ValueError("Roll number must be an integer.")
+
+    if roll_no <= 0:
+        raise ValueError("Roll number must be positive.")
+
+    return True
+
+def validate_marks(marks):
+    if not isinstance(marks, list):
+        raise ValueError("Marks must be a list.")
+
+    if len(marks) != 5:
+        raise ValueError("Exactly 5 subject marks required.")
+
+    for m in marks:
+        if not isinstance(m, (int, float)):
+            raise ValueError("Marks must be numeric.")
+
+        if m < 0 or m > 100:
+            raise ValueError("Marks must be between 0 and 100.")
+
+    return True
+
+def validate_subject(subject):
+    normalized = subject.strip().title()
+
+    if normalized not in ALLOWED_SUBJECTS:
+        raise ValueError(f"Subject must be one of: {', '.join(ALLOWED_SUBJECTS)}")
+
+    return normalized
+
+def validate_salary(salary):
+    if not isinstance(salary, (int, float)):
+        raise ValueError("Salary must be numeric.")
+
+    if salary <= 0:
+        raise ValueError("Salary must be positive.")
+
+    return True

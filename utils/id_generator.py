@@ -1,4 +1,4 @@
-def generate_id(data, id_field):
+def generate_id(data: list, id_field):
 
     if not data:
         return 1

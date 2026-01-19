@@ -8,7 +8,7 @@ def add_student(name, student_class, roll_no, marks):
 
     students = load_data(STUDENT_FILE)          # loading JSON data in list
 
-    student_id = f"ID_{generate_id(students)}"  # generating unique ID for students
+    student_id = f"ID_{generate_id(students, "student_id")}"  # generating unique ID for students
 
     student_details = {
         "student_id": student_id,
@@ -23,18 +23,21 @@ def add_student(name, student_class, roll_no, marks):
 
     return student_id
 
-
+# show the list of all students in a given class
 def get_all_students(st_class):
     pass
 
+# searching students
 def find_student_by_id(student_id):
     pass
 
 def find_student_by_roll_no(roll_no):
     pass
 
+# updating marks of students based on ID
 def update_student_marks(student_id, new_marks):
     pass
 
+# delete a student by the ID
 def delete_student(student_id):
     pass
