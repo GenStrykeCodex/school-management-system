@@ -1,9 +1,9 @@
-""" School Management System version 0.2 (UNDER DEVELOPMENT) """
+""" School Management System version 0.3 (UNDER DEVELOPMENT) """
 
 # importing modules
 
 # greeting users
-print("\nWelcome to School Management System v0.2!")
+print("\nWelcome to School Management System v0.3!")
 
 # helper function for pauses between actions
 def pause():

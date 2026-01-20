@@ -7,6 +7,17 @@ ALLOWED_SUBJECTS = [
     "Computer Science"
 ]
 
+def validate_student_id(student_id):
+    if not student_id.startswith("ID_"):
+        raise ValueError("Student ID must start with 'ID_'")
+
+    numeric_part = student_id.split("_")[1]
+
+    if not numeric_part.isdigit():
+        raise ValueError("Student ID format invalid")
+
+    return True
+
 def validate_name(name):
     if not name.replace(" ", "").isalpha():
         raise ValueError("Name should contain only letters and spaces.")
