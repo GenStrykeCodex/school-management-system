@@ -1,7 +1,7 @@
-def generate_id(data: list, id_field):
+def generate_id(data, id_field, prefix="ID_"):
 
     if not data:
-        return 1
+        return f"{prefix}1"
 
     max_id = 0
 
@@ -11,4 +11,4 @@ def generate_id(data: list, id_field):
         if numeric_part > max_id:
             max_id = numeric_part
 
-    return max_id + 1
+    return f"{prefix}{str(max_id + 1)}"
