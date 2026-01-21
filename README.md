@@ -1,4 +1,4 @@
-# School Management System v0.3 (Python)
+# School Management System v0.4 (Python)
 
 **Status**: `UNDER DEVELOPMENT`
 

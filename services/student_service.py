@@ -5,9 +5,9 @@ from utils.validators import validate_student_id, validate_name, validate_class,
 
 STUDENT_FILE = "data/students.json"
 
+
 # adding students in the dictionary and updating JSON
 def add_student(name, student_class, roll_no, marks):
-
     try:
         students_data = load_data(STUDENT_FILE)
 
@@ -28,9 +28,9 @@ def add_student(name, student_class, roll_no, marks):
     except ValueError as e:
         return False, str(e)
 
+
 # show the list of all students in a given class
 def get_students_by_class(student_class):
-
     try:
         validate_class(student_class)
 
@@ -47,9 +47,9 @@ def get_students_by_class(student_class):
     except ValueError as e:
         return False, str(e)
 
+
 # searching students
 def find_student_by_id(student_id):
-
     try:
         validate_student_id(student_id)
 
@@ -64,8 +64,8 @@ def find_student_by_id(student_id):
     except ValueError as e:
         return False, str(e)
 
-def find_student_by_roll(student_class, roll_no):
 
+def find_student_by_roll(student_class, roll_no):
     try:
         validate_class(student_class)
         validate_roll_no(roll_no)
@@ -81,6 +81,7 @@ def find_student_by_roll(student_class, roll_no):
     except ValueError as e:
         return False, str(e)
 
+
 # updating marks of students based on ID
 def update_student_marks(student_id, new_marks):
     try:
@@ -91,7 +92,6 @@ def update_student_marks(student_id, new_marks):
 
         for student in students_data:
             if student["student_id"] == student_id:
-
                 student["marks"] = new_marks
                 save_data(STUDENT_FILE, students_data)
 
@@ -102,9 +102,9 @@ def update_student_marks(student_id, new_marks):
     except ValueError as e:
         return False, str(e)
 
+
 # delete a student by the ID
 def delete_student(student_id):
-
     try:
         validate_student_id(student_id)
 
@@ -112,7 +112,6 @@ def delete_student(student_id):
 
         for index, student in enumerate(students_data):
             if student["student_id"] == student_id:
-
                 del students_data[index]
                 save_data(STUDENT_FILE, students_data)
 

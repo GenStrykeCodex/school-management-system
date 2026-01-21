@@ -7,6 +7,7 @@ ALLOWED_SUBJECTS = [
     "Computer Science"
 ]
 
+
 def validate_student_id(student_id):
     if not student_id.startswith("ID_"):
         raise ValueError("Student ID must start with 'ID_'")
@@ -18,10 +19,24 @@ def validate_student_id(student_id):
 
     return True
 
+
+def validate_teacher_id(teacher_id):
+    if not teacher_id.startswith("TCH_"):
+        raise ValueError("Teacher ID must start with 'TCH_'")
+
+    numeric_part = teacher_id.split("_")[1]
+
+    if not numeric_part.isdigit():
+        raise ValueError("Teacher ID format invalid")
+
+    return True
+
+
 def validate_name(name):
     if not name.replace(" ", "").isalpha():
         raise ValueError("Name should contain only letters and spaces.")
     return True
+
 
 def validate_class(student_class):
     if not isinstance(student_class, int):
@@ -32,6 +47,7 @@ def validate_class(student_class):
 
     return True
 
+
 def validate_roll_no(roll_no):
     if not isinstance(roll_no, int):
         raise ValueError("Roll number must be an integer.")
@@ -40,6 +56,7 @@ def validate_roll_no(roll_no):
         raise ValueError("Roll number must be positive.")
 
     return True
+
 
 def validate_marks(marks):
     if not isinstance(marks, list):
@@ -57,6 +74,7 @@ def validate_marks(marks):
 
     return True
 
+
 def validate_subject(subject):
     normalized = subject.strip().title()
 
@@ -64,6 +82,7 @@ def validate_subject(subject):
         raise ValueError(f"Subject must be one of: {', '.join(ALLOWED_SUBJECTS)}")
 
     return normalized
+
 
 def validate_salary(salary):
     if not isinstance(salary, (int, float)):
