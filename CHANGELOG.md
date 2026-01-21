@@ -3,32 +3,17 @@
 **Project Status**: Under Development
 
 ---
-## v0.4 Changelog – 21 Jan 2026
-
-### Title: Completed Teacher Services
-
-Features Added:
-- `teacher_service.py` implemented
-- Teacher add operation added
-- Teacher search by ID implemented
-- View all teachers functionality added
-- Teacher salary update feature added
-- Teacher deletion by ID implemented
-- Teacher ID validation (TCH_ prefix) integrated
-- Connected teacher services with JSON storage and validators
-
----
 
 ## v0.3 Changelog - 20 Jan 2026
-### Title: Completed Student Services
+### Title: Added Students Service
 
 Features added:
-- `student_service.py` implemented
-- Student add operation added
-- Class-wise student listing implemented
-- Student search by ID and Class+Roll implemented
-- Student marks update feature added
-- Student deletion by ID implemented
+- `student_service.py` completed
+- `add_students()` added
+- Show all students in a class added
+- Search student by the ID and Roll No. added
+- `update_student_marks()` added
+- Students can be deleted by the ID
 
 ---
 
