@@ -1,9 +1,9 @@
-""" School Management System version 0.4 (UNDER DEVELOPMENT) """
+""" School Management System version 0.5 (UNDER DEVELOPMENT) """
 
 # importing modules
 
 # greeting users
-print("\nWelcome to School Management System v0.4!")
+print("\nWelcome to School Management System v0.5!")
 
 
 # helper function for pauses between actions

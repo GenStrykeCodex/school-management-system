@@ -1,4 +1,4 @@
-# School Management System v0.4 (Python)
+# School Management System v0.5 (Python)
 
 **Status**: `UNDER DEVELOPMENT`
 
@@ -14,4 +14,4 @@ More details coming soon.
 
 Check the detailed updates on `CHANGELOG.md`
 
-**Note** : This project is under development so some files may be empty and the program is not connected properly.
+**Note** : All the services are added in the project, now only connecting main UI is left before initial release.

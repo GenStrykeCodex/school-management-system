@@ -4,6 +4,21 @@
 
 ---
 
+## v0.5 Changelog – 21 Jan 2026
+### Title:  Report Services Module Completed
+
+**Features Added**:
+
+- `report_service.py` implemented
+- Student percentage calculation utility added
+- Individual student report generation added
+- Class topper identification feature added
+- Class average percentage calculation added
+- Pass/fail statistics report for classes added
+- Report module with validators and JSON storage integrated
+
+---
+
 ## v0.4 Changelog – 21 Jan 2026
 ### Title: Teacher Services Module Completed
 
