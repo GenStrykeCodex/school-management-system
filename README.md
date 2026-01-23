@@ -4,7 +4,7 @@
 
 A CLI-based School Management System built using Python OOP and JSON-based storage.
 
-## Planned Features
+## Features Added
 - Student Management
 - Teacher Management
 - Marks Handling
@@ -14,4 +14,4 @@ More details coming soon.
 
 Check the detailed updates on `CHANGELOG.md`
 
-**Note** : All the services are added in the project, now only connecting main UI is left before initial release.
+**Note** : Everything is complete and now only displaying result is left in `main.py`.

@@ -39,8 +39,10 @@ def validate_name(name):
 
 
 def validate_class(student_class):
-    if not isinstance(student_class, int):
+    if not student_class.isdigit():
         raise ValueError("Class must be an integer.")
+
+    student_class = int(student_class)
 
     if student_class < 1 or student_class > 12:
         raise ValueError("Class must be between 1 and 12.")
@@ -49,8 +51,10 @@ def validate_class(student_class):
 
 
 def validate_roll_no(roll_no):
-    if not isinstance(roll_no, int):
+    if not roll_no.isdigit():
         raise ValueError("Roll number must be an integer.")
+
+    roll_no = int(roll_no)
 
     if roll_no <= 0:
         raise ValueError("Roll number must be positive.")

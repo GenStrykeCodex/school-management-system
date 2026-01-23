@@ -4,6 +4,17 @@
 
 ---
 
+## v0.6 Changelog - 23 Jan 2026
+### Title: `main.py` reworked
+
+**Features Added**:
+
+- CLI Menu reworked
+- Connection of modules established
+- `validators.py` updated
+
+---
+
 ## v0.5 Changelog – 21 Jan 2026
 ### Title:  Report Services Module Completed
 
