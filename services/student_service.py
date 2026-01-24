@@ -13,7 +13,14 @@ def add_student(name, student_class, roll_no, marks):
 
         validate_name(name)
         validate_class(student_class)
-        validate_roll_no(roll_no)
+        validate_roll_no(roll_no, student_class, students_data)
+
+        for student in students_data:
+            if student["class"] == student_class:
+                existing_roll = int(student["roll_no"])
+                if existing_roll == roll_no:
+                    raise ValueError(f"Student with this roll number already exists in class {student_class}.")
+
         validate_marks(marks)
 
         student_id = generate_id(students_data, "student_id")
@@ -42,6 +49,9 @@ def get_students_by_class(student_class):
             if student["class"] == student_class:
                 filtered_students.append(student)
 
+        if not filtered_students:
+            return False, "Student not found"
+
         return True, filtered_students
 
     except ValueError as e:
@@ -68,9 +78,10 @@ def find_student_by_id(student_id):
 def find_student_by_roll(student_class, roll_no):
     try:
         validate_class(student_class)
-        validate_roll_no(roll_no)
 
         students_data = load_data(STUDENT_FILE)
+
+        validate_roll_no(roll_no, student_class, students_data)
 
         for student in students_data:
             if student["class"] == student_class and student["roll_no"] == roll_no:

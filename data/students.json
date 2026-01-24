@@ -1,0 +1,41 @@
+[
+    {
+        "student_id": "ID_1",
+        "name": "Harsh Kumar",
+        "class": "12",
+        "roll_no": "1",
+        "marks": [
+            85.0,
+            46.0,
+            76.0,
+            87.0,
+            67.0
+        ]
+    },
+    {
+        "student_id": "ID_2",
+        "name": "Vinay Verma",
+        "class": "12",
+        "roll_no": "2",
+        "marks": [
+            90.0,
+            87.0,
+            97.0,
+            65.0,
+            78.0
+        ]
+    },
+    {
+        "student_id": "ID_3",
+        "name": "Ruchi Kumari",
+        "class": "12",
+        "roll_no": "3",
+        "marks": [
+            97.0,
+            78.0,
+            98.0,
+            87.0,
+            99.0
+        ]
+    }
+]

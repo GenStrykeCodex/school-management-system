@@ -1,4 +1,4 @@
-""" School Management System version 0.6 (UNDER DEVELOPMENT) """
+""" School Management System version 1.0 (Initial Release) """
 
 # importing modules
 from services.student_service import (
@@ -33,14 +33,14 @@ REPORT_MENU_SIZE = 5
 
 
 # greeting users
-print("\nWelcome to School Management System v0.6!")
+print("\nWelcome to School Management System v1.0!")
 
 
 ''' Helper Functions '''
 
 # helper function for pauses between actions
 def pause():
-    input("Press Enter to return")
+    input("\nPress Enter to return")
 
 
 # helper function to get user choice
@@ -58,8 +58,8 @@ def choice(num):
 def get_marks():
     marks = []
     sub = 0
-    while sub <= 5:
-        mark = input(f"Enter marks in subject{sub}: ")
+    while sub < 5:
+        mark = input(f"Enter marks in subject {sub+1}: ")
         try:
             mark = float(mark)
             marks.append(mark)
@@ -158,7 +158,19 @@ def view_student_handler():
     success, result = get_students_by_class(st_class)
 
     if success:
-        pass
+        print("\n" + "=" * 45)
+        print(f"{'#':<5} {'ID':<7} {'Name':<20} {'Roll No':<10}")
+        print("=" * 45)
+
+        for i, student in enumerate(result):
+            student_id = list(student.values())[0]
+            student_name = list(student.values())[1]
+            student_roll = list(student.values())[3]
+
+            print(f"{i+1:<5} {student_id:<7} {student_name:<20} {student_roll:<10}")
+
+        print("=" * 45)
+
     else:
         print("Error:", result)
 
@@ -166,7 +178,7 @@ def view_student_handler():
 # handle find students
 def find_student_handler(para):
     if para == "id":
-        student_id = int(input("Enter student ID: "))
+        student_id = input("Enter student ID: ")
         success, result = find_student_by_id(student_id)
 
     elif para == "roll":
@@ -179,7 +191,17 @@ def find_student_handler(para):
         result = "Invalid argument for searching students"
 
     if success:
-        pass
+        student_id = list(result.values())[0]
+        student_name = list(result.values())[1]
+        student_class = list(result.values())[2]
+        student_roll = list(result.values())[3]
+
+        print("\nStudent Details --\n")
+        print(f"ID: {student_id}")
+        print(f"Name: {student_name}")
+        print(f"Class: {student_class}")
+        print(f"Roll: {student_roll}")
+
     else:
         print("Error:", result)
 
@@ -205,12 +227,17 @@ def student_delete_handler():
 
     student_id = input("Enter student ID (eg., 'ID_2'): ")
 
-    success, result = delete_student(student_id)
+    confirm = input("\nAre you sure you want to delete this student? (y/n): ").lower()
 
-    if success:
-        print(result)
+    if confirm == "y":
+        success, result = delete_student(student_id)
+
+        if success:
+            print(result)
+        else:
+            print("Error:", result)
     else:
-        print("Error:", result)
+        print("Student Deletion Cancelled by User..")
 
 
 ''' Teacher Handler Functions '''
@@ -233,10 +260,24 @@ def add_teacher_handler():
 
 # handle view teachers
 def view_teacher_handler():
+    print("\nView all Teachers --")
+
     success, result = get_all_teachers()
 
     if success:
-        pass
+        print("\n" + "=" * 65)
+        print(f"{'#':<5} {'ID':<7} {'Name':<20} {'Subject':<20} {'Salary':<10}")
+        print("=" * 65)
+
+        for i, teacher in enumerate(result):
+            teacher_id = list(teacher.values())[0]
+            teacher_name = list(teacher.values())[1]
+            teacher_subject = list(teacher.values())[2]
+            teacher_salary = list(teacher.values())[3]
+
+            print(f"{i + 1:<5} {teacher_id:<7} {teacher_name:<20} {teacher_subject:<20} {teacher_salary:<10}")
+
+        print("=" * 65)
     else:
         print("Error:", result)
 
@@ -249,7 +290,16 @@ def find_teacher_handler():
     success, result = find_teacher_by_id(teacher_id)
 
     if success:
-        pass
+        teacher_id = list(result.values())[0]
+        teacher_name = list(result.values())[1]
+        teacher_subject = list(result.values())[2]
+        teacher_salary = list(result.values())[3]
+
+        print("\nStudent Details --\n")
+        print(f"ID: {teacher_id}")
+        print(f"Name: {teacher_name}")
+        print(f"Subject: {teacher_subject}")
+        print(f"Salary: {teacher_salary}")
     else:
         print("Error:", result)
 
@@ -275,12 +325,17 @@ def teacher_delete_handler():
 
     teacher_id = input("Enter teacher ID (eg., 'TCH_2'): ")
 
-    success, result = delete_teacher(teacher_id)
+    confirm = input("\nAre you sure you want to delete this student? (y/n): ").lower()
 
-    if success:
-        print(result)
+    if confirm == "y":
+        success, result = delete_teacher(teacher_id)
+
+        if success:
+            print(result)
+        else:
+            print("Error:", result)
     else:
-        print("Error:", result)
+        print("Teacher Deletion Cancelled by User..")
 
 
 ''' Reports Handler Functions '''
@@ -294,7 +349,17 @@ def student_report_handler():
     success, result = get_student_report(student_id)
 
     if success:
-        pass
+        student = list(result.values())
+
+        print("\nStudent Details --\n")
+        print(f"ID: {student[0]}")
+        print(f"Name: {student[1]}")
+        print(f"Class: {student[2]}")
+        print(f"Roll: {student[3]}")
+        print(f"Marks: {student[4]}")
+        print(f"Percentage: {student[5]} %")
+        print(f"Status: {student[6]}")
+
     else:
         print("Error:", result)
 
@@ -308,7 +373,18 @@ def class_topper_handler():
     success, result = get_class_topper(st_class)
 
     if success:
-        pass
+        print(f"Class {st_class} Topper -- ")
+        topper_id = list(result.values())[0]
+        topper_name = list(result.values())[1]
+        topper_roll = list(result.values())[3]
+        topper_percent = list(result.values())[4]
+
+        print("\n" + "=" * 55)
+        print(f"{'ID':<7} {'Name':<20} {'Roll No':<10} {'Percentage':<20}")
+        print("=" * 55)
+        print(f"{topper_id:<7} {topper_name:<20} {topper_roll:<10} {topper_percent:<20}")
+        print("=" * 55)
+
     else:
         print("Error:", result)
 
@@ -322,7 +398,7 @@ def class_average_handler():
     success, result = get_class_average(st_class)
 
     if success:
-        print(f"Average percentage of Class {st_class}: {result}%")
+        print(f"\nAverage percentage of Class {st_class}: {result}%")
 
         if result < 40:
             print("Very poor performance! Needs improvement.")
@@ -360,7 +436,6 @@ def class_report_handler():
                 if not 30 < pass_percent < 60:
                     success = False
                     result = "Passing percent must be between 30 and 60"
-
                     break
 
                 success, result = get_class_pass_fail(st_class, pass_percent)
@@ -370,7 +445,12 @@ def class_report_handler():
                 print("Please enter a valid percentage")
 
     if success:
-        pass
+        report = list(result.values())
+        print(f"\nClass {st_class} Details --\n")
+        print(f"Total Students: {report[1]}")
+        print(f"Passed Students: {report[2]}")
+        print(f"Failed Students: {report[3]}")
+
     else:
         print("Error:", result)
 
@@ -402,7 +482,7 @@ def student_main():
             elif option == 3:
                 # find a student by ID or roll
                 print("Find a student by -- ")
-                para = input("\n'ID' or 'Roll':" ).lower()
+                para = input("\n'ID' or 'Roll': " ).lower()
 
                 find_student_handler(para)
 

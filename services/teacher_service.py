@@ -69,11 +69,12 @@ def update_teacher_salary(teacher_id, new_salary):
 
         for teacher in teachers_data:
             if teacher["teacher_id"] == teacher_id:
+                teacher_name = teacher["teacher_name"]
                 old_salary = teacher["salary"]
                 teacher["salary"] = new_salary
                 save_data(TEACHER_FILE, teachers_data)
 
-                return True, f"Teacher salary successfully updated from {old_salary} to {new_salary}"
+                return True, f"Salary of {teacher_name} successfully updated from {old_salary} to {new_salary}"
 
         return False, "Teacher not found"
 

@@ -1,6 +1,34 @@
 # School Management System
 
-**Project Status**: Under Development
+**Project Status**: Stable initial release with full core functionality implemented.
+
+---
+## v1.0 Changelog – Initial Stable Release
+### Title: Full CLI-Based School Management System  
+
+### Highlights:
+- Completed CLI menu integration (`main.py`)
+- Connected all service modules with interactive handlers
+- Implemented full Student Management system:
+  - Add, search by ID and roll number
+  - View students by class
+  - Update marks
+  - Delete records
+- Implemented full Teacher Management system:
+  - Add teachers
+  - View all teachers
+  - Search by ID
+  - Update salary
+  - Delete records
+- Integrated Academic Reports module:
+  - Individual student report
+  - Class topper
+  - Class average percentage
+  - Pass/Fail class statistics
+- Added input validation and error handling across application
+- Implemented persistent JSON-based data storage
+- Improved CLI output formatting and user experience
+- Completed layered architecture (models, services, utils, controller)
 
 ---
 

@@ -50,7 +50,7 @@ def validate_class(student_class):
     return True
 
 
-def validate_roll_no(roll_no):
+def validate_roll_no(roll_no, st_class, data):
     if not roll_no.isdigit():
         raise ValueError("Roll number must be an integer.")
 
